@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+[![GitHub Workflow ci Status](https://img.shields.io/github/workflow/status/marcusrbrown/vscode-bash/ci?style=for-the-badge&logo=github%20actions&logoColor=white)](https://github.com/marcusrbrown/vscode-bash/actions?query=workflow%3Aci "Search GitHub Actions for ci workflow")
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
