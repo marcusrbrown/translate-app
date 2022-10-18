@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [main, 'renovate/**', 'feat/**', 'fix/**']
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  FORCE_COLOR: 3
+  NODE_VERSION: 16
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Node ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@969bd2663942d722d85b6a8626225850c2f7be4b # tag=v3.5.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Configure
+        shell: bash
+        run: |
+          npm config set scripts-prepend-node-path true
+          echo "Node $(node --version)"
+          echo "Yarn $(yarn --version)"
+
+      - name: Checkout
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+
+      - name: Get Yarn cache
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - name: Use Yarn cache
+        uses: actions/cache@56461b9eb0f8438fd15c7a9968e3c9ebb18ceff1 # tag=v3.0.10
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: |
+            **/.eslintcache
+            **/node_modules
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-yarn-
+
+      - name: Clear Yarn cache
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        shell: bash
+        run: |
+          rm -rf .eslintcache
+          rm -rf node_modules
+          yarn cache clean
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Run tests
+        run: yarn test
+
+      - name: Build production bundle
+        run: yarn build
