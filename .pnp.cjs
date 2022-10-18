@@ -35,6 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.11.1"],\
             ["@types/react", "npm:18.0.21"],\
             ["@types/react-dom", "npm:18.0.6"],\
+            ["@types/testing-library__jest-dom", "npm:5.14.5"],\
             ["eslint", "npm:8.25.0"],\
             ["eslint-config-react-app", "virtual:8bc6ca23a381b12e1c42329af196ae4bcf6be32748e9e15ae2a770297be839f4c61f08841a42cb4fb2607fd1271e93c50cf08c5d4c0a90b0eb2a3d08601f1c02#npm:7.0.1"],\
             ["husky", "npm:8.0.1"],\
@@ -16348,6 +16349,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:18.11.1"],\
             ["@types/react", "npm:18.0.21"],\
             ["@types/react-dom", "npm:18.0.6"],\
+            ["@types/testing-library__jest-dom", "npm:5.14.5"],\
             ["eslint", "npm:8.25.0"],\
             ["eslint-config-react-app", "virtual:8bc6ca23a381b12e1c42329af196ae4bcf6be32748e9e15ae2a770297be839f4c61f08841a42cb4fb2607fd1271e93c50cf08c5d4c0a90b0eb2a3d08601f1c02#npm:7.0.1"],\
             ["husky", "npm:8.0.1"],\
