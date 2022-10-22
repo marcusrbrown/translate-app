@@ -1,7 +1,12 @@
-import React from "react";
-import Flower from "./svg/flower";
+import Flower from './svg/Flower';
 
-function Field({ value, onChange }) {
+function Field({
+  value,
+  onChange,
+}: {
+  value: string;
+  onChange: (value: string) => void;
+}) {
   return (
     <div className="field">
       <Flower className="flower-right" fill="rgb(110, 146, 119)" />
