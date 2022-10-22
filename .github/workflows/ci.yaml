@@ -31,14 +31,11 @@ jobs:
         id: yarn-config
         shell: bash
         run: |
-          npm config set scripts-prepend-node-path true
-          echo "Node $(node --version)"
-          echo "Yarn $(yarn --version)"
-          echo "yarn enableGlobalCache = $(yarn config get enableGlobalCache)"
           echo "CACHE_FOLDER=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Use Yarn cache
         uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7 # tag=v3.0.11
+        id: yarn-cache
         with:
           path: ${{ steps.yarn-config.outputs.CACHE_FOLDER }}
           key: yarn-cache-${{ hashFiles('yarn.lock') }}
