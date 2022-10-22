@@ -2746,14 +2746,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 18.11.0
-  resolution: "@types/node@npm:18.11.0"
-  checksum: f27f899ab428e5732f04fadadc9203f44bdf3abf56474540ee27da90e4f2ba133faf87263cada4d2271955f92ee6a142bd50683c86290fe5070c19aac44fd654
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.11.1":
+"@types/node@npm:*, @types/node@npm:^18.11.1":
   version: 18.11.1
   resolution: "@types/node@npm:18.11.1"
   checksum: 51fb6a1d5369a9d04338a139703c3bc6eb1e2da218f2fa170fa531c1c6b7e829c57695aba842f44cfd358ef4bc18c95c650f25e31d324a552a63bebab16d667d
@@ -12138,7 +12131,7 @@ __metadata:
     react-dom: ^18.2.0
     react-scripts: ^5.0.1
     typescript: ^4.8.4
-    web-vitals: ^2.1.0
+    web-vitals: ^3.0.0
   languageName: unknown
   linkType: soft
 
@@ -12515,10 +12508,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web-vitals@npm:^2.1.0":
-  version: 2.1.4
-  resolution: "web-vitals@npm:2.1.4"
-  checksum: 03d3f47dbf55c3dce07beb0ff5de8ddd52e2d0a53a8df5c84e7a16dda93543341d67231fa79b1d9772b091419af4ec0fd395b8bcf451a0e26846e3f76b3d0efc
+"web-vitals@npm:^3.0.0":
+  version: 3.0.4
+  resolution: "web-vitals@npm:3.0.4"
+  checksum: b618a8e049e0c64948eea09c372db490802bcc8bcb30230a2bc69d9e243b1a2fa54d0f0ae19d5e63f19381df86db2a9260ca15ef620e10024888eab487a77d56
   languageName: node
   linkType: hard
 
