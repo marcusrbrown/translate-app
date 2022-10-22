@@ -19,47 +19,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+
       - name: Setup Node ${{ env.NODE_VERSION }}
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # tag=v3.5.1
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Configure
+      - name: Configure Yarn
+        id: yarn-config
         shell: bash
         run: |
-          npm config set scripts-prepend-node-path true
-          echo "Node $(node --version)"
-          echo "Yarn $(yarn --version)"
-
-      - name: Checkout
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
-
-      - name: Get Yarn cache
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+          echo "CACHE_FOLDER=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Use Yarn cache
         uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7 # tag=v3.0.11
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        id: yarn-cache
         with:
-          path: |
-            **/.eslintcache
-            **/node_modules
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: ${{ steps.yarn-config.outputs.CACHE_FOLDER }}
+          key: yarn-cache-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-yarn-
-
-      - name: Clear Yarn cache
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
-        shell: bash
-        run: |
-          rm -rf .eslintcache
-          rm -rf node_modules
-          yarn cache clean
+            yarn-cache-
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: yarn install --immutable --inline-builds
 
       - name: Run tests
         run: yarn test
