@@ -5,9 +5,15 @@
     },
     "typescript.tsdk": ".yarn/sdks/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
+    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+    "eslint.nodePath": ".yarn/sdks",
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-    "eslint.nodePath": ".yarn/sdks"
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 }
