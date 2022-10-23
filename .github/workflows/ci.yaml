@@ -45,6 +45,8 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --immutable --inline-builds
+        env:
+          HUSKY: 0 # Disable Husky hooks installation
 
       - name: Run tests
         run: yarn test
