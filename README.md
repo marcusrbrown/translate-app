@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-[![GitHub Workflow ci Status](https://img.shields.io/github/workflow/status/marcusrbrown/translate-app/ci?style=for-the-badge&logo=github%20actions&logoColor=white)](https://github.com/marcusrbrown/translate-app/actions?query=workflow%3Aci "Search GitHub Actions for ci workflow")
+[![GitHub Workflow ci Status](https://img.shields.io/github/workflow/status/marcusrbrown/translate-app/CI?style=for-the-badge&logo=github%20actions&logoColor=white)](https://github.com/marcusrbrown/translate-app/actions?query=workflow%3ACI "Search GitHub Actions for CI workflow runs")
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
