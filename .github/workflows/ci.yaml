@@ -2,12 +2,12 @@ name: CI
 
 on:
   push:
-    branches: [main, 'renovate/**', 'feat/**', 'fix/**']
+    branches: [main, 'renovate/**']
   pull_request:
   workflow_dispatch:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.number || github.ref }}
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
   cancel-in-progress: true
 
 env:
@@ -27,26 +27,36 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Configure Yarn
+      - name: Get Yarn configuration
         id: yarn-config
         shell: bash
         run: |
-          echo "CACHE_FOLDER=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+          echo "INSTALL_STATE_PATH=$(yarn config get installStatePath)" >> $GITHUB_OUTPUT
+          echo "PNP_UNPLUGGED_FOLDER=$(yarn config get pnpUnpluggedFolder)" >> $GITHUB_OUTPUT
 
-      - name: Use Yarn cache
+      - name: Restore Yarn install state
+        id: yarn-install-state-cache
         uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7 # tag=v3.0.11
-        id: yarn-cache
         with:
-          path: ${{ steps.yarn-config.outputs.CACHE_FOLDER }}
-          key: yarn-cache-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            yarn-cache-
+          key: ${{ runner.os }}-yarn-install-state-cache-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
+          path: |
+            ${{ steps.yarn-config.outputs.INSTALL_STATE_PATH }}
+            ${{ steps.yarn-config.outputs.PNP_UNPLUGGED_FOLDER }}
 
       - name: Install dependencies
         run: yarn install --immutable --inline-builds
 
       - name: Run tests
         run: yarn test
+
+      - name: Restore build cache
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7 # tag=v3.0.11
+        with:
+          key: ${{ runner.os }}-build-cache-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}-${{ hashFiles('src/**.tsx?', 'package.json', 'tsconfig.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-cache-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}-
+          path: |
+            ${{ github.workspace }}/node_modules/.cache
 
       - name: Build production bundle
         run: yarn build
