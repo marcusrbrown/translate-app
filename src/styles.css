@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mali&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Mali&display=swap');
 
 .container {
   margin: 10px 20px;
@@ -34,7 +34,7 @@ html {
 body {
   min-height: 100vh;
   background-color: #9fc4a5;
-  font-family: "Mali", sans-serif;
+  font-family: 'Mali', sans-serif;
   color: white !important;
 }
 
