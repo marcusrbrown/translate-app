@@ -51,6 +51,9 @@ jobs:
       - name: Run tests
         run: yarn test --ci --coverage
 
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+
       - name: Restore build cache
         uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7 # tag=v3.0.11
         with:
