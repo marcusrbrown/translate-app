@@ -51,6 +51,13 @@
       "last 1 safari version"
     ]
   },
+  "jest": {
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text"
+    ]
+  },
   "lint-staged": {
     "src/**/*.{css,ts,tsx}": [
       "prettier --write"
