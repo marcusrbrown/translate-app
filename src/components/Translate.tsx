@@ -53,7 +53,7 @@ const doTranslation = debounce(
     input: string,
     languageCode: string,
     cancelToken: CancelTokenSource,
-    callback: (data: string) => void,
+    callback: (data: string) => void
   ) => {
     try {
       const {data} = await axios.post(
@@ -62,14 +62,14 @@ const doTranslation = debounce(
           q: input,
           target: languageCode,
         },
-        {cancelToken: cancelToken.token},
+        {cancelToken: cancelToken.token}
       );
 
       callback(data.data.translations[0].translatedText);
     } catch (err) {
       callback('');
     }
-  },
+  }
 );
 
 export default Translate;
