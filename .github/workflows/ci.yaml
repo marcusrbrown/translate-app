@@ -12,7 +12,7 @@ concurrency:
 
 env:
   FORCE_COLOR: 3
-  NODE_VERSION: 16
+  NODE_VERSION: 16 # renovate: datasource=node depName=node
 
 jobs:
   ci:
