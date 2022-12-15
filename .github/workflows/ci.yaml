@@ -4,15 +4,15 @@ on:
   push:
     branches: [main, 'renovate/**']
   pull_request:
+    branches: [main]
   workflow_dispatch:
 
 concurrency:
-  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  group: '${{ github.workflow }} @ $${{ github.head_ref || github.run_id }}'
   cancel-in-progress: true
 
 env:
   FORCE_COLOR: 3
-  NODE_VERSION: 16 # renovate: datasource=node depName=node
 
 jobs:
   ci:
@@ -26,6 +26,8 @@ jobs:
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # tag=v3.5.1
         with:
           node-version: ${{ env.NODE_VERSION }}
+        env:
+          NODE_VERSION: 16.x # renovate: datasource=node depName=node
 
       - name: Get Yarn configuration
         id: yarn-config
