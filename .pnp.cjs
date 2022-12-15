@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-react-app", "virtual:8bc6ca23a381b12e1c42329af196ae4bcf6be32748e9e15ae2a770297be839f4c61f08841a42cb4fb2607fd1271e93c50cf08c5d4c0a90b0eb2a3d08601f1c02#npm:7.0.1"],\
             ["husky", "npm:8.0.2"],\
             ["lint-staged", "npm:13.1.0"],\
-            ["prettier", "npm:2.8.0"],\
+            ["prettier", "npm:2.8.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:8bc6ca23a381b12e1c42329af196ae4bcf6be32748e9e15ae2a770297be839f4c61f08841a42cb4fb2607fd1271e93c50cf08c5d4c0a90b0eb2a3d08601f1c02#npm:18.2.0"],\
             ["react-scripts", "virtual:8bc6ca23a381b12e1c42329af196ae4bcf6be32748e9e15ae2a770297be839f4c61f08841a42cb4fb2607fd1271e93c50cf08c5d4c0a90b0eb2a3d08601f1c02#npm:5.0.1"],\
@@ -14378,10 +14378,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["prettier", [\
-        ["npm:2.8.0", {\
-          "packageLocation": "./.yarn/cache/prettier-npm-2.8.0-746e3df53e-72004ce0cc.zip/node_modules/prettier/",\
+        ["npm:2.8.1", {\
+          "packageLocation": "./.yarn/cache/prettier-npm-2.8.1-be60b51821-4f21a0f126.zip/node_modules/prettier/",\
           "packageDependencies": [\
-            ["prettier", "npm:2.8.0"]\
+            ["prettier", "npm:2.8.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -16540,7 +16540,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-config-react-app", "virtual:8bc6ca23a381b12e1c42329af196ae4bcf6be32748e9e15ae2a770297be839f4c61f08841a42cb4fb2607fd1271e93c50cf08c5d4c0a90b0eb2a3d08601f1c02#npm:7.0.1"],\
             ["husky", "npm:8.0.2"],\
             ["lint-staged", "npm:13.1.0"],\
-            ["prettier", "npm:2.8.0"],\
+            ["prettier", "npm:2.8.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:8bc6ca23a381b12e1c42329af196ae4bcf6be32748e9e15ae2a770297be839f4c61f08841a42cb4fb2607fd1271e93c50cf08c5d4c0a90b0eb2a3d08601f1c02#npm:18.2.0"],\
             ["react-scripts", "virtual:8bc6ca23a381b12e1c42329af196ae4bcf6be32748e9e15ae2a770297be839f4c61f08841a42cb4fb2607fd1271e93c50cf08c5d4c0a90b0eb2a3d08601f1c02#npm:5.0.1"],\
