@@ -34,7 +34,6 @@ jobs:
         shell: bash
         run: |
           echo "INSTALL_STATE_PATH=$(yarn config get installStatePath)" >> $GITHUB_OUTPUT
-          echo "PNP_UNPLUGGED_FOLDER=$(yarn config get pnpUnpluggedFolder)" >> $GITHUB_OUTPUT
 
       - name: Restore Yarn install state
         id: yarn-install-state-cache
@@ -43,7 +42,6 @@ jobs:
           key: ${{ runner.os }}-yarn-install-state-cache-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
           path: |
             ${{ steps.yarn-config.outputs.INSTALL_STATE_PATH }}
-            ${{ steps.yarn-config.outputs.PNP_UNPLUGGED_FOLDER }}
 
       - name: Install dependencies
         run: yarn install --immutable --inline-builds
