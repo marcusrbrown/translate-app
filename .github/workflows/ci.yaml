@@ -33,20 +33,30 @@ jobs:
         id: yarn-config
         shell: bash
         run: |
+          echo "CACHE_FOLDER=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
           echo "INSTALL_STATE_PATH=$(yarn config get installStatePath)" >> $GITHUB_OUTPUT
+
+      - name: Restore Yarn cache
+        id: yarn-cache
+        uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7 # tag=v3.0.11
+        with:
+          key: yarn-cache-${{ hashFiles('yarn.lock') }}
+          path: ${{ steps.yarn-config.outputs.CACHE_FOLDER }}
+          restore-keys: |
+            yarn-cache-
 
       - name: Restore Yarn install state
         id: yarn-install-state-cache
         uses: actions/cache@9b0c1fce7a93df8e3bb8926b0d6e9d89e92f20a7 # tag=v3.0.11
         with:
           key: ${{ runner.os }}-yarn-install-state-cache-${{ hashFiles('yarn.lock', '.yarnrc.yml') }}
-          path: |
-            ${{ steps.yarn-config.outputs.INSTALL_STATE_PATH }}
+          path: ${{ steps.yarn-config.outputs.INSTALL_STATE_PATH }}
 
       - name: Install dependencies
         run: yarn install --immutable --inline-builds
         env:
           HUSKY: 0 # Disable Husky hooks installation
+          YARN_NM_MODE: 'hardlinks-local'
 
       - name: Run tests
         run: yarn test --ci --coverage
