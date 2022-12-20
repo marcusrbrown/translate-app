@@ -1,6 +1,6 @@
 {
   "name": "translate-app",
-  "packageManager": "yarn@3.3.0",
+  "packageManager": "yarn@3.3.1",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
