@@ -34,7 +34,7 @@
     "eslint-config-react-app": "7.0.1",
     "husky": "8.0.3",
     "lint-staged": "13.2.1",
-    "prettier": "2.8.7",
+    "prettier": "2.8.8",
     "react-scripts": "5.0.1",
     "storybook": "7.0.6",
     "typescript": "5.0.4"
