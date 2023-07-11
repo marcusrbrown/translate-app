@@ -8,6 +8,7 @@
   },
   "include": [
     ".eslintrc.cjs",
+    "jest.config.ts",
     "vite.config.ts"
   ],
 }

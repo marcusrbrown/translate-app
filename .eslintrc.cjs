@@ -41,7 +41,7 @@ module.exports = {
     },
     {
       env: {node: true},
-      files: ['vite.config.ts'],
+      files: ['*.config.ts'],
       parserOptions: {
         sourceType: 'module',
         project: __dirname + '/tsconfig.node.json',
