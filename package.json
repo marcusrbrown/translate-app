@@ -17,10 +17,10 @@
     "@storybook/addon-interactions": "7.0.26",
     "@storybook/addon-links": "7.0.26",
     "@storybook/addon-mdx-gfm": "7.0.26",
+    "@storybook/builder-vite": "7.0.26",
     "@storybook/node-logger": "7.0.26",
-    "@storybook/preset-create-react-app": "latest",
     "@storybook/react": "7.0.26",
-    "@storybook/react-webpack5": "7.0.26",
+    "@storybook/react-vite": "7.0.26",
     "@storybook/testing-library": "0.2.0",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "14.0.0",
@@ -29,40 +29,28 @@
     "@types/node": "18.16.19",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
-    "@types/testing-library__jest-dom": "5.14.7",
+    "@typescript-eslint/eslint-plugin": "6.0.0",
+    "@typescript-eslint/parser": "6.0.0",
+    "@vitejs/plugin-react": "4.0.3",
     "eslint": "8.44.0",
-    "eslint-config-react-app": "7.0.1",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "eslint-plugin-react-refresh": "0.4.3",
     "husky": "8.0.3",
     "lint-staged": "13.2.3",
     "prettier": "3.0.0",
-    "react-scripts": "5.0.1",
     "storybook": "7.0.26",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "vite": "4.4.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --report-unused-disable-directives --max-warnings=0",
+    "preview": "vite preview",
     "postinstall": "husky install",
     "storybook": "storybook dev -p 6006 -s public",
     "build-storybook": "storybook build -s public"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.stories.*"
-        ],
-        "rules": {
-          "import/no-anonymous-default-export": "off"
-        }
-      }
-    ]
   },
   "browserslist": {
     "production": [

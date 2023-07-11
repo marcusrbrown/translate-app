@@ -27,14 +27,16 @@ const useTranslation = (text: string, language: string) => {
     return () => {
       try {
         cancelToken.cancel();
-      } catch (err) {}
+      } catch (err) {
+        /* empty */
+      }
     };
   }, [text, language]);
 
   return [translated];
 };
 
-const debounce = <TArgs extends any[]>(fn: (...args: TArgs) => void) => {
+const debounce = <TArgs extends unknown[]>(fn: (...args: TArgs) => unknown) => {
   let id: ReturnType<typeof setTimeout> | null = null;
 
   return (...args: TArgs) => {
@@ -53,23 +55,25 @@ const doTranslation = debounce(
     input: string,
     languageCode: string,
     cancelToken: CancelTokenSource,
-    callback: (data: string) => void
+    callback: (data: string) => void,
   ) => {
     try {
-      const {data} = await axios.post(
+      const {data} = await axios.post<{
+        data: {translations: {translatedText: string}[]};
+      }>(
         'https://translation.googleapis.com/language/translate/v2?key=AIzaSyCf0Xy0OnhxlduyEt3K8zP-sOuu-l_u6uA',
         {
           q: input,
           target: languageCode,
         },
-        {cancelToken: cancelToken.token}
+        {cancelToken: cancelToken.token},
       );
 
       callback(data.data.translations[0].translatedText);
     } catch (err) {
       callback('');
     }
-  }
+  },
 );
 
 export default Translate;
