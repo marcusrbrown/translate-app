@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
         env:
-          NODE_VERSION: 18.18.0 # renovate: datasource=node depName=node
+          NODE_VERSION: 18.19.0 # renovate: datasource=node depName=node
 
       - name: Get Yarn configuration
         id: yarn-config
