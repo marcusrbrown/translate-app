@@ -1,14 +1,8 @@
-function Languages({
-  language,
-  onLanguageChange,
-}: {
-  language: string;
-  onLanguageChange: (language: string) => void;
-}) {
+function Languages({language, onLanguageChange}: {language: string; onLanguageChange: (language: string) => void}) {
   return (
     <div>
-      <label className="label">Select Language</label>
-      <div className="opts">
+      <label className='label'>Select Language</label>
+      <div className='opts'>
         {LANGUAGES.map(({label, value}) => {
           return (
             <div

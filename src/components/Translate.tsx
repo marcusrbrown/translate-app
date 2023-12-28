@@ -5,9 +5,9 @@ function Translate({language, text}: {language: string; text: string}) {
   const [translated] = useTranslation(text, language);
 
   return (
-    <div className="translate">
-      <label className="label">Output</label>
-      <h1 className="title">{translated.replace('&#39;', "'")}</h1>
+    <div className='translate'>
+      <label className='label'>Output</label>
+      <h1 className='title'>{translated.replace('&#39;', "'")}</h1>
     </div>
   );
 }
@@ -51,12 +51,7 @@ const debounce = <TArgs extends unknown[]>(fn: (...args: TArgs) => unknown) => {
 };
 
 const doTranslation = debounce(
-  async (
-    input: string,
-    languageCode: string,
-    cancelToken: CancelTokenSource,
-    callback: (data: string) => void,
-  ) => {
+  async (input: string, languageCode: string, cancelToken: CancelTokenSource, callback: (data: string) => void) => {
     try {
       const {data} = await axios.post<{
         data: {translations: {translatedText: string}[]};
