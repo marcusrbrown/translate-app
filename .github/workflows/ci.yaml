@@ -11,8 +11,8 @@ concurrency:
   group: '${{ github.workflow }} @ $${{ github.head_ref || github.run_id }}'
   cancel-in-progress: true
 
-env:
-  FORCE_COLOR: 3
+permissions:
+  contents: read
 
 jobs:
   ci:
@@ -23,14 +23,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Setup Node.js
         uses: actions/setup-node@1a4442cacd436585916779262731d5b162bc6ec7 # v3.8.2
         with:
           cache: pnpm
           node-version-file: '.node-version'
-
-      - name: Enable Corepack
-        run: corepack enable
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile --ignore-scripts
