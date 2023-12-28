@@ -1,6 +1,6 @@
 {
   "name": "translate-app",
-  "packageManager": "yarn@3.7.0",
+  "packageManager": "pnpm@8.13.1",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -52,6 +52,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --report-unused-disable-directives --max-warnings=0",
+    "check-format": "prettier --check .",
+    "format": "prettier --write .",
     "preview": "vite preview",
     "test": "jest",
     "postinstall": "husky install",
@@ -71,12 +73,8 @@
     ]
   },
   "lint-staged": {
-    "src/**/*.{css,ts,tsx}": [
+    "src/**/*.{css,json,json5,md,ts,tsx}": [
       "prettier --write"
     ]
-  },
-  "prettier": {
-    "bracketSpacing": false,
-    "singleQuote": true
   }
 }

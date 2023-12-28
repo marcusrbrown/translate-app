@@ -4,11 +4,7 @@
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
-  "include": [
-    ".eslintrc.cjs",
-    "jest.config.ts",
-    "vite.config.ts"
-  ],
+  "include": [".eslintrc.cjs", "jest.config.ts", "vite.config.ts"]
 }

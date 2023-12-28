@@ -1,11 +1,15 @@
 {
     "search.exclude": {
-        "**/.yarn": true
+        "**/.husky": true,
+        "**/storybook-static": true,
+        "**/node_modules": true,
+        "**/dist": true,
+        "**/coverage": true
     },
     "typescript.tsdk": "node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": "explicit"
     },
     "editor.formatOnSave": true,
     "[jsonc]": {
@@ -16,5 +20,5 @@
     },
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
+    }
 }
