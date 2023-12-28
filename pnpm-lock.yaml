@@ -20,8 +20,8 @@ dependencies:
 
 devDependencies:
   '@mdx-js/react':
-    specifier: 2.3.0
-    version: 2.3.0(react@18.2.0)
+    specifier: 3.0.0
+    version: 3.0.0(@types/react@18.2.45)(react@18.2.0)
   '@storybook/addon-actions':
     specifier: 7.6.6
     version: 7.6.6
@@ -2082,6 +2082,17 @@ packages:
   /@mdx-js/react@2.3.0(react@18.2.0):
     resolution: {integrity: sha512-zQH//gdOmuu7nt2oJR29vFhDv88oGPmVw6BggmrHeMI+xgEkp1B2dX9/bMBSYtK0dyLX/aOmesKS09g222K1/g==}
     peerDependencies:
+      react: '>=16'
+    dependencies:
+      '@types/mdx': 2.0.10
+      '@types/react': 18.2.45
+      react: 18.2.0
+    dev: true
+
+  /@mdx-js/react@3.0.0(@types/react@18.2.45)(react@18.2.0):
+    resolution: {integrity: sha512-nDctevR9KyYFyV+m+/+S4cpzCWHqj+iHDHq3QrsWezcC+B17uZdIWgCguESUkwFhM3n/56KxWVE3V6EokrmONQ==}
+    peerDependencies:
+      '@types/react': '>=16'
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.10
