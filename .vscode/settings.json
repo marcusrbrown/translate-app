@@ -12,6 +12,9 @@
         "source.fixAll.eslint": "explicit"
     },
     "editor.formatOnSave": true,
+    "[json5]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
