@@ -17,17 +17,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
   },
   "exclude": [
     // "src/setupTests.ts",
     ".eslintrc.cjs",
-    "src/**/*.test.tsx?"
+    "src/**/*.test.tsx?",
   ],
   "include": ["src"],
   "references": [
     {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+      "path": "./tsconfig.node.json",
+    },
+  ],
 }
