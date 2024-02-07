@@ -56,7 +56,7 @@
     "format": "prettier --write .",
     "preview": "vite preview",
     "test": "jest",
-    "postinstall": "husky install",
+    "postinstall": "husky",
     "storybook": "storybook dev -p 6006 -s public",
     "build-storybook": "storybook build -s public"
   },
